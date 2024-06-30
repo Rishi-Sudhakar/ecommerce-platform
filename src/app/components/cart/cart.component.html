@@ -1,1 +1,19 @@
-<p>cart works!</p>
+<div class="cart">
+    <h2>Your Cart</h2>
+    <div *ngFor="let item of cartItems">
+      <mat-card>
+        <mat-card-content>
+          <h3>{{ item.product.title }}</h3>
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Price: {{ item.product.price | currency }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" (click)="removeFromCart(item.id)">Remove</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div *ngIf="cartItems.length === 0">
+      <p>Your cart is empty.</p>
+    </div>
+  </div>
+  

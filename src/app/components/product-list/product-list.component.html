@@ -1,1 +1,18 @@
-<p>product-list works!</p>
+<div class="product-list">
+    <mat-grid-list cols="4" rowHeight="400px">
+      <mat-grid-tile *ngFor="let product of products">
+        <mat-card>
+          <img mat-card-image [src]="product.image" alt="{{ product.title }}">
+          <mat-card-content>
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description | slice:0:100 }}...</p>
+            <p>Price: {{ product.price | currency }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['/products', product.id]">View Details</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  
