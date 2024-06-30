@@ -1,1 +1,14 @@
-<p>product-detail works!</p>
+<div class="product-detail">
+    <mat-card>
+      <img mat-card-image [src]="product.image" alt="{{ product.title }}">
+      <mat-card-content>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price | currency }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToCart()">Add to Cart</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
